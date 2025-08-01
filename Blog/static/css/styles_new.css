@@ -1,0 +1,643 @@
+
+
+
+/* Reset básico para márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente base para todo el sitio */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #f5f5f5; /* fondo gris claro */
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Contenedor principal */
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background: #fff; /* fondo blanco para el contenido */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+
+
+
+
+
+/* Header principal */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: #023047; /* azul bootstrap */
+  padding: 1.5rem 2rem;
+  border-bottom: 5px solid #f56a6a;
+  color: #fff;
+  position: relative;
+  border-radius: 5px 5px 0 0;
+}
+
+/* Texto Informatorio 2025 */
+#header > div p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #ddd; /* color más suave que blanco */
+}
+
+/* Logo */
+#header .logo {
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Iconos a la derecha */
+#header .icons {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+#header .icons li a {
+  color: #fff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#header .icons li a:hover {
+  color: #f56a6a; /* mismo color que el borde inferior */
+}
+
+
+
+
+
+
+
+
+
+/* Banner principal */
+#banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e9f0ff; /* azul muy claro para el banner */
+  border-radius: 5px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Contenido del banner */
+#banner .content {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+/* Título y párrafos */
+#banner header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #007bff;
+}
+
+#banner header p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+#banner > .content > p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón Learn More */
+#banner .actions .button.big {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+#banner .actions .button.big:hover {
+  background-color: #0056b3;
+}
+
+/* Imagen del banner */
+#banner .image.object {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#banner .image.object img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+/* Contenedor de artículos */
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Cada artículo individual */
+.posts article {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.posts article:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen en el artículo */
+.posts article .image {
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.posts article .image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.posts article:hover .image img {
+  transform: scale(1.05);
+}
+
+/* Título */
+.posts article h3 {
+  font-size: 1.25rem;
+  margin: 1rem;
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* Texto del artículo */
+.posts article p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 1rem 1rem 1rem;
+  flex-grow: 1;
+}
+
+/* Botón More */
+.posts article .actions {
+  margin: 0 1rem 1rem 1rem;
+}
+
+.posts article .actions .button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.posts article .actions .button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+/* Contenedor de características */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Cada artículo de feature */
+.features article {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.features article:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Iconos grandes */
+.features article .icon {
+  font-size: 3rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+/* Contenido dentro del artículo */
+.features article .content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  color: #007bff;
+  font-weight: 700;
+}
+
+.features article .content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer general */
+#footer {
+  background-color: #023047; /* azul igual al header */
+  color: #fff;
+  padding: 2rem 2rem;
+  border-radius: 0 0 5px 5px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Texto de copyright */
+#footer p {
+  margin: 0;
+}
+
+/* Lista de contacto */
+.contact {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #023047;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #e0e0e0;
+}
+
+.contact li.icon {
+  font-size: 1.2rem;
+  /* Puedes agregar iconos con FontAwesome o similares */
+}
+
+/* Enlaces en contacto */
+.contact li a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact li a:hover {
+  color: #f56a6a;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Para pantallas medianas y pequeñas */
+@media screen and (max-width: 1024px) {
+
+  /* Wrapper menos padding para pantallas medianas */
+  #wrapper {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Header: apilar el contenido */
+  #header {
+    flex-wrap: wrap;
+    padding: 1rem 1rem;
+  }
+
+  #header > div, 
+  #header .icons {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  #header .icons {
+    justify-content: center;
+  }
+
+  /* Banner: apilar contenido e imagen */
+  #banner {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  #banner .content,
+  #banner .image.object {
+    max-width: 100%;
+    flex: unset;
+  }
+
+  /* Posts: pasar a 1 o 2 columnas según espacio */
+  .posts {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  /* Features: ajustar columnas */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact list en footer: apilar vertical */
+  .contact {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Para pantallas pequeñas (celulares) */
+@media screen and (max-width: 480px) {
+
+  body {
+    font-size: 14px;
+  }
+
+  #header .logo {
+    font-size: 1.5rem;
+  }
+
+  #banner header h1 {
+    font-size: 1.8rem;
+  }
+
+  #banner .actions .button.big {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .posts article .image img {
+    height: 140px;
+  }
+
+  .features article .icon {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Transiciones suaves para todos los botones y enlaces */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Cursor pointer para botones y enlaces interactivos */
+a.button, button {
+  cursor: pointer;
+}
+
+/* Efecto sombra suave para links y botones */
+a.button:hover, button:hover {
+  filter: brightness(1.1);
+}
+
+/* Ajustes para listas y textos */
+ul {
+  list-style: none;
+}
+
+p, li {
+  line-height: 1.5;
+}
+
+/* Sombra y borde sutil para sidebar */
+#sidebar {
+  background: #f9f9f9;
+  border-left: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0 5px 5px 0;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* Links menú lateral */
+#menu ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+#menu ul li a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Submenú */
+#menu ul li ul {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Indicador para "opener" */
+#menu .opener {
+  cursor: pointer;
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* Scrollbar personalizado para sidebar */
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+/* Animación suave para imágenes */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Botón flotante para abrir el sidebar */
+#sidebarToggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Sidebar lateral oculto por defecto */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* fuera de la pantalla */
+  width: 250px;
+  height: 100%;
+  background-color: #222;
+  color: white;
+  padding-top: 2rem;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar ul li {
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+#sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  background-color: #444;
+}
+
+/* Sidebar visible */
+#sidebar.active {
+  left: 0;
+}
+
+
+
+
+
+
+
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

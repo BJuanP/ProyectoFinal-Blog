@@ -2077,7 +2077,8 @@ button,
   display: flex;
   border-bottom: solid 5px #f56a6a;
   padding: 6em 0 1em 0;
-  position: relative; }
+  position: relative; 
+}
   #header > * {
     -moz-flex: 1;
     -webkit-flex: 1;
@@ -2271,3 +2272,4 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+

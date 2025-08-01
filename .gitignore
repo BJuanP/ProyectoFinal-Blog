@@ -1,5 +1,76 @@
+
+
+# === ARCHIVOS DE PYTHON ===
 *.pyc
+*.pyo
+*.pyd
+*.py~ 
 __pycache__/
+**/__pycache__/
+
+# === DJANGO ===
+**.sqlite3
 db.sqlite3
+*.log
+*.pot
+*.mo
+
+# Migraciones compiladas
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+# Opcional: ignorar todas las migraciones (solo si querés controlarlas manualmente)
+**/migrations/*.py
+
+# === VARIABLES DE ENTORNO Y SECRETS ===
 .env
-/staticfiles/
+.env.*
+*.env
+*.secret
+secrets.json
+
+# === ENTORNOS VIRTUALES ===
+venv/
+.venv/
+ENV/
+env/
+.VENV/
+
+# === ARCHIVOS Y CARPETAS DEL SISTEMA OPERATIVO ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === IDEs Y EDITORES ===
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# === TESTING Y COVERAGE ===
+.coverage
+.tox/
+htmlcov/
+coverage.xml
+nosetests.xml
+*.cover
+.pytest_cache/
+*.log
+
+# === BACKUPS Y TEMPORALES ===
+*.bak
+*.tmp
+*.old
+*.swp
+*.orig
+
+
+# === ARCHIVOS DE COMPILACIÓN JS/CSS (si usás frontend) ===
+node_modules/
+*.map
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
