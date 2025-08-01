@@ -1,0 +1,39 @@
+
+
+{% extends 'base.html' %}
+
+
+{% block contenido_cuerpo %}
+
+    <a href="{% url 'articulos:path_crear_articulo' %}">CREAR NUEVO ARTICULO</a>
+    <h1>LISTA DE ARTICULOS</h1>
+
+    <section class="posts">
+
+        {% for articulo in articulos %}
+            <article>
+
+                {% if articulo.imagen %}
+                    <div class="image">
+                        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+                    </div>
+                {% endif %}
+
+                <h3>{{ articulo.titulo }}</h3>
+                <p>{{ articulo.descripcion }}</p>
+
+                <div class="actions">
+                    <a href="#" class="button">Leer más</a>
+                </div>
+            </article>
+
+        {% empty %}
+            <p> No hay artículos publicados todavía...</p>
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+
+
+
