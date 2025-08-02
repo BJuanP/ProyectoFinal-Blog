@@ -14,16 +14,27 @@
             <article>
 
                 {% if articulo.imagen %}
+
+                    <style>
+						.imagen_producto {
+							width: auto;
+							height: 600px;
+							object-fit: cover;
+							border-radius: 10px;
+						}
+					</style>
+
                     <div class="image">
-                        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+                        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}" class="imagen_producto">
                     </div>
+
                 {% endif %}
 
-                <h3>{{ articulo.titulo }}</h3>
+                <h3>{{ articulo.nombre }}</h3>
                 <p>{{ articulo.descripcion }}</p>
 
                 <div class="actions">
-                    <a href="#" class="button">Leer más</a>
+                    <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button"> Leer más </a>
                 </div>
             </article>
 
@@ -33,7 +44,6 @@
 
     </section>
 
+
 {% endblock %}
-
-
 

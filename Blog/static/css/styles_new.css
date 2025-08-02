@@ -641,3 +641,137 @@ img:hover {
 .btn:hover {
     background-color: #0056b3;
 }
+
+
+
+
+
+
+
+
+
+
+
+.detalle-articulo-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.volver-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.volver-link:hover {
+    text-decoration: underline;
+}
+
+.titulo-articulo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contenido-articulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagen-articulo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.descripcion-articulo {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer-personalizado {
+    background-color: #022c43;
+    color: #fff;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+.footer-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info,
+.footer-contacto,
+.footer-redes {
+    flex: 1 1 300px;
+}
+
+.footer-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-contacto ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contacto li {
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contacto i {
+    margin-right: 0.6rem;
+    color: #00bcd4;
+}
+
+.footer-redes a {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer-redes a:hover {
+    color: #00bcd4;
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+}
+
+.footer-copy a {
+    color: #00bcd4;
+    text-decoration: none;
+}

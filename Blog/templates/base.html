@@ -31,54 +31,65 @@
 				<div id="main">
 					<div class="inner">
 
-						<!-- Header -->
-							<header id="header" style="display: flex; align-items: center; justify-content: space-between;">
+					<!-- Header -->
+						<header id="header" style="display: flex; align-items: center; justify-content: space-between;">
 
-								<div>
-									<p style="font-size: 0.9rem; margin: 0; color: #999;"><strong>Informatorio 2025</strong> </p>
-									<a href="#" class="logo" style="font-size: 2rem;"><strong>(NOMBRE DEL SITIO)</strong></a>
+							<div>
+								<p style="font-size: 0.9rem; margin: 0; color: #999;"><strong>Informatorio 2025</strong> </p>
+								<a href="#" class="logo" style="font-size: 2rem;"><strong>(NOMBRE DEL SITIO)</strong></a>
+							</div>
+
+							<ul class="icons">
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-snapchat-ghost"></i></a></li>
+								<li><a href="#"><i class="fab fa-medium-m"></i></a></li>
+							</ul>
+						</header>
+
+						
+						{% block contenido_cuerpo %}
+
+							
+						{% endblock %}
+
+						
+						<!-- Footer personalizado -->
+						<footer id="footer-personalizado">
+							<div class="footer-contenedor">
+								<div class="footer-info">
+									<h3>Equipo del Proyecto</h3>
+									<p>Juan Pablo Bravo y colaboradores</p>
 								</div>
 
-								<ul class="icons">
-									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="#"><i class="fab fa-snapchat-ghost"></i></a></li>
-									<li><a href="#"><i class="fab fa-medium-m"></i></a></li>
-								</ul>
-							</header>
+								<div class="footer-contacto">
+									<ul>
+										<li><i class="fas fa-envelope"></i> <a href="#">informacion@untitled.tld</a></li>
+										<li><i class="fas fa-phone"></i> (000) 000-0000</li>
+										<li><i class="fas fa-map-marker-alt"></i> 1234 Somewhere Road #8254, Nashville</li>
+									</ul>
+								</div>
 
-						
-							{% block contenido_cuerpo %}
+								<div class="footer-redes">
+									<a href="#"><i class="fab fa-twitter"></i></a>
+									<a href="#"><i class="fab fa-facebook-f"></i></a>
+									<a href="#"><i class="fab fa-instagram"></i></a>
+									<a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+									<a href="#"><i class="fab fa-medium-m"></i></a>
+								</div>
+							</div>
 
-								
-							{% endblock %}
-
-						
-						<!-- Footer -->
-							<section>
-								<header class="major">
-									<h2>(Informacion de los integrantes)</h2>
-								</header>
-
-								<ul class="contact">
-									<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-									<li class="icon solid fa-phone">(000) 000-0000</li>
-									<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-									Nashville, TN 00000-0000</li>
-								</ul>
-
-						<!-- Footer -->
-								<section id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</section>
-							</section>
+							<div class="footer-copy">
+								<p>&copy; 2025 Informatorio. Imágenes: <a href="https://unsplash.com">Unsplash</a>. Plantilla: <a href="https://html5up.net">HTML5 UP</a>.</p>
+							</div>
+						</footer>
 						
 					</div>
 				</div>
 
 				<!--  Esto es para el styles_new -->
-
+				<div>
 					<!-- Botón para abrir el sidebar -->
 					<button id="sidebarToggle">☰ Menú</button>
 

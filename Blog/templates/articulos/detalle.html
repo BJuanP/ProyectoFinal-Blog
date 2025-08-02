@@ -1,0 +1,33 @@
+
+
+
+{% extends 'base.html' %}
+
+
+{% block contenido_cuerpo %}
+
+    <section class="detalle-articulo-container">
+        
+        <a href="{% url 'articulos:path_listar_articulos' %}" class="volver-link"> Volver </a>
+
+        <h1 class="titulo-articulo">{{ articulo.nombre }}</h1>
+
+        <div class="contenido-articulo">
+
+            <img src="{{ articulo.imagen.url }}" class="imagen-articulo" alt="{{ articulo.nombre }}">
+
+            <p class="descripcion-articulo">
+                <strong>Descripción:</strong><br>
+                {{ articulo.descripcion }}
+            </p>
+            
+        </div>
+
+    </section>
+
+{% endblock contenido_cuerpo %}
+
+
+
+
+

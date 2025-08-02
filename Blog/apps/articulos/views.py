@@ -19,6 +19,15 @@ def Listar_Articulos(request):
 
 
 
+#VISTA BASADA EN CLASES
+class Detalle_Articulo(DetailView):
+    
+    template_name = 'articulos/detalle.html'
+    model = Articulo
+    context_object_name = 'articulo'
+
+
+
 class Crear_Articulo(CreateView):     
     
     model = Articulo

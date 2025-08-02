@@ -26,64 +26,35 @@
 
     <!-- Section -->
     <section>
+        
         <header class="major">
             <h2>Últimos Artículos</h2>
         </header>
-        <div class="posts">
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
-                <h3>Interdum aenean</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
-                <h3>Nulla amet dolore</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
-                <h3>Tempus ullamcorper</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic04.jpg' %}" alt="" /></a>
-                <h3>Sed etiam facilis</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic05.jpg' %}" alt="" /></a>
-                <h3>Feugiat lorem aenean</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
-            <article>
-                <a href="#" class="image"><img src="{% static 'images/pic06.jpg' %}" alt="" /></a>
-                <h3>Amet varius aliquam</h3>
-                <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                <ul class="actions">
-                    <li><a href="#" class="button">More</a></li>
-                </ul>
-            </article>
 
-            <ul class="actions">
-                <li><a href="{% url 'articulos:path_listar_articulos' %}" class="button"> VER TODOS LOS ARTICULOS </a></li>
-            </ul>
+        <section class="posts">
+            {% for articulo in ultimos_articulos %}
+                <article>
+                    {% if articulo.imagen %}
+                        <div class="image">
+                            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}" class="imagen_producto">
+                        </div>
+                    {% endif %}
 
-        </div>
+                    <h3>{{ articulo.nombre }}</h3>
+                    <p>{{ articulo.descripcion|truncatechars:100 }}</p>
+
+                    <div class="actions">
+                        <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button">Ver más</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+
+        <ul class="actions">
+            <li><a href="{% url 'articulos:path_listar_articulos' %}" class="button"> VER TODOS LOS ARTICULOS </a></li>
+        </ul>
+
+        
     </section>
 
     <!-- Section -->
