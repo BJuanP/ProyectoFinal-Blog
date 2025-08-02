@@ -8,3 +8,6 @@ class Comentario(models.Model):
     texto = models.TextField(max_length=600)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return f"{self.usuario} comentó en {self.articulo}."

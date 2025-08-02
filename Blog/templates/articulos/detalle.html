@@ -23,6 +23,19 @@
             
         </div>
 
+        <div class="area-comentarios">
+            <h1 class="comentarios">Comentarios</h1>
+            <form action="{% url 'comentarios:path_comentar' articulo.pk %}" method="post"> {%csrf_token%}
+            <textarea name="comentario" type="text" cols="60" rows="10" class="comentario-texto" required="true"></textarea>
+            <button type="submit">COMENTAR</button>
+            </form>
+            {% for c in Articulo.MisComentarios %}
+                <ul>
+                    <li> {{c.texto}} </li>
+                </ul>
+            {% endfor %}
+        </div>
+
     </section>
 
 {% endblock contenido_cuerpo %}

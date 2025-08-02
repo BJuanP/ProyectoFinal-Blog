@@ -18,9 +18,8 @@ urlpatterns = [
     
     path('', views.Home, name = "path_home"),
     
-    
     path('Articulos/', include('articulos.urls')), 
-
+    path('Comentarios/', include('comentarios.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)   
 
