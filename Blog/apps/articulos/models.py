@@ -23,4 +23,4 @@ class Articulo(models.Model):    #Son clases en Python que se van a relacionar c
         return self.nombre
     
     def MisComentarios(self):
-        return self.cometario_set.all()
+        return self.comentario_set.all()

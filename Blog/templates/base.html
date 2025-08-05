@@ -14,14 +14,18 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'css/styles_new.css' %}">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 		<!-- Font Awesome descargado localmente -->
   		<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
-
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap" rel="stylesheet">
+		
 	</head>
 
 
 	<body class="is-preload">
+		<div class="progress-bar" id="myProgressBar"></div>
 
 
 	<!-- Wrapper -->
@@ -118,6 +122,6 @@
 			});
 			</script>
 		
-
+		<script src="{% static 'js/scroll-handler.js' %}"></script>	
 	</body>
 </html>

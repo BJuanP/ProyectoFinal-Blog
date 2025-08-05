@@ -10,7 +10,7 @@
 
 /* Fuente base para todo el sitio */
 body {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
   background: #f5f5f5; /* fondo gris claro */
   color: #333;
   line-height: 1.6;
@@ -774,4 +774,135 @@ img:hover {
 .footer-copy a {
     color: #00bcd4;
     text-decoration: none;
+}
+
+
+
+
+
+
+/* Estilos para el área de comentarios */
+.area-comentarios {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.contador-comentarios {
+    font-size: 1rem;
+    color: #666;
+    font-weight: normal;
+    margin-left: 0.5rem;
+}
+
+.area-comentarios h1.comentarios {
+    font-size: 1.8rem;
+    color: #023047;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+/* Estilos para el formulario de comentarios */
+.area-comentarios form {
+    margin-bottom: 2rem;
+}
+
+.comentario-texto {
+    height: 50%;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1rem;
+    resize: none;
+}
+
+.comentario-texto:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.area-comentarios button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.area-comentarios button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la lista de comentarios */
+.lista-comentarios {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.lista-comentarios li {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+    border-left: 4px solid #007bff;
+}
+
+.lista-comentarios li:hover {
+    transform: translateX(5px);
+}
+
+.lista-comentarios li p {
+    margin: 0 0 0.8rem 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.lista-comentarios li small {
+    color: #666;
+    font-size: 0.85rem;
+    display: block;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+}
+
+/* Estilos para cuando no hay comentarios */
+.lista-comentarios li.no-comentarios {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    background-color: #f8f9fa;
+    border-left: none;
+}
+
+/*Barra de progreso*/
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #007bff;
+    width: 0%;
+    z-index: 1002;
+    transition: width 0.2s ease-out;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }

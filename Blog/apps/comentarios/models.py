@@ -2,6 +2,7 @@ from django.db import models
 from articulos.models import Articulo
 from django.contrib.auth.models import User
 
+
 class Comentario(models.Model):
     creado = models.DateTimeField(auto_now_add= True)
     modificado = models.DateTimeField(auto_now=True)
