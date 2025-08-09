@@ -22,5 +22,5 @@ class Articulo(models.Model):    #Son clases en Python que se van a relacionar c
         
         return self.nombre
     
-    def MisComentarios(self):
+    def MisComentarios(self):  #Trae todos los comentarios relacionados con este articulo
         return self.comentario_set.all()

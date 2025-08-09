@@ -810,7 +810,7 @@ img:hover {
 }
 
 .comentario-texto {
-    height: 50%;
+    height: 100%;
     width: 100%;
     padding: 1rem;
     border: 2px solid #e0e0e0;
@@ -829,7 +829,7 @@ img:hover {
     box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
-.area-comentarios button[type="submit"] {
+.area-comentarios button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -842,13 +842,15 @@ img:hover {
     letter-spacing: 1px;
 }
 
-.area-comentarios button[type="submit"]:hover {
+.area-comentarios button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Estilos para la lista de comentarios */
+
+
 .lista-comentarios {
     list-style: none;
     padding: 0;
@@ -892,6 +894,80 @@ img:hover {
     background-color: #f8f9fa;
     border-left: none;
 }
+
+/*Eliminar comentario*/
+.confirmacion-eliminar {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.confirmacion-eliminar h2 {
+    color: #023047;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #f56a6a;
+    padding-bottom: 0.5rem;
+}
+
+.confirmacion-eliminar p {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.confirmacion-eliminar .comentario-info {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #f56a6a;
+}
+
+.confirmacion-eliminar .botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.confirmacion-eliminar .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirmacion-eliminar .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.confirmacion-eliminar .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.confirmacion-eliminar .btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
 
 /*Barra de progreso*/
 
