@@ -26,6 +26,21 @@ class Detalle_Articulo(DetailView):
     model = Articulo
     context_object_name = 'articulo'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        orden = self.request.GET.get('orden', 'reciente')  # valor por defecto 'reciente'
+        
+        # Obtener los comentarios ordenados - corregimos esta parte
+        comentarios = self.object.MisComentarios.all()  # Asegúrate que MisComentarios es el related_name correcto
+        
+        # Aplicamos el orden
+        if orden == 'antiguo':
+            comentarios = comentarios.order_by('creado')
+        else:
+            comentarios = comentarios.order_by('-creado')
+        
+        context['comentarios'] = comentarios
+        return context
 
 
 class Crear_Articulo(CreateView):     

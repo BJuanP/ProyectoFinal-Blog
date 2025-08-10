@@ -25,21 +25,26 @@
         <div class="area-comentarios">
             <h1 class="comentarios">
                 Comentarios <span class="contador-comentarios">({{ articulo.MisComentarios.count }})</span>
-            <form action="{% url 'comentarios:path_comentar' articulo.pk %}" method="post"> {%csrf_token%}
+            <form action="{% url 'comentarios:path_comentar' articulo.pk %}?orden={{ request.GET.orden }}" method="post"> {%csrf_token%}
             <textarea name="comentario" type="text" cols="60" rows="5" class="comentario-texto" required="true"></textarea>
             <button type="submit">COMENTAR</button>
             </form>
-
             
+            <h3>Ordenar:</h3>
+            <a class="boton-ordenar"  href="{% url 'articulos:path_detalle_articulo' articulo.pk %}?orden=reciente">Más reciente</a>
+
+            <a class="boton-ordenar"  href="{% url 'articulos:path_detalle_articulo' articulo.pk %}?orden=antiguo">Más antiguo</a>
+           
+
 
             <ul class="lista-comentarios">
-                {% for comentario in articulo.MisComentarios %}
+                {% for comentario in comentarios %}
     
                     <li>
                         <p>{{ comentario.texto }}</p>
                         <small>Por: {{ comentario.usuario }} - {{ comentario.creado|date:"d/m/Y" }}</small>
-                            <form action="{% url 'comentarios:path_eliminar' comentario.pk %}" method="get">
-                            <button type="submit">Eliminar</button>
+                            <a href="{% url 'comentarios:path_eliminar' comentario.pk %}?orden={{ request.GET.orden }}" class="boton-eliminar">Eliminar</a>
+                            <span> <a class ='boton-editar' href="{% url 'comentarios:path_editar' comentario.pk %}?orden={{ request.GET.orden }}">Editar</a></span>
                     </li>
                 {% empty %}
                     <li class="no-comentarios">No hay comentarios todavía.</li>

@@ -850,6 +850,28 @@ img:hover {
 
 /* Estilos para la lista de comentarios */
 
+.boton-ordenar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.3em 0.6em;  /* Usando em para mejor escalado */
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75em;  /* Tamaño relativo al contenedor */
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton-ordenar:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
 
 .lista-comentarios {
     list-style: none;
@@ -865,7 +887,52 @@ img:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     transition: transform 0.2s ease;
     border-left: 4px solid #007bff;
+    word-wrap: break-word;      /* Permite que las palabras largas se rompan */
+    overflow-wrap: break-word;  /* Asegura que el texto se ajuste dentro del contenedor */
+    width: 100%;               /* Asegura que el elemento tome todo el ancho disponible */
 }
+
+.boton-editar {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.3em 0.6em;  /* Usando em para mejor escalado */
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75em;  /* Tamaño relativo al contenedor */
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton-editar:hover {
+    background-color: #339337;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.boton-eliminar {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.3em 0.6em;  /* Usando em para mejor escalado */
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.75em;  /* Tamaño relativo al contenedor */
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton-eliminar:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 
 .lista-comentarios li:hover {
     transform: translateX(5px);
@@ -876,6 +943,8 @@ img:hover {
     color: #333;
     font-size: 1rem;
     line-height: 1.6;
+    max-width: 100%;           /* Limita el ancho máximo al contenedor padre */
+    word-break: break-word;    /* Rompe palabras largas si es necesario */
 }
 
 .lista-comentarios li small {
@@ -894,6 +963,106 @@ img:hover {
     background-color: #f8f9fa;
     border-left: none;
 }
+
+
+/*Editar comentario*/
+
+.confirmar-edicion {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.confirmar-edicion h2 {
+    color: #023047;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 0.5rem;
+}
+
+.confirmar-edicion p {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.confirmar-edicion .comentario-info {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #4CAF50;
+}
+
+.confirmar-edicion .botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.confirmar-edicion textarea {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    margin-bottom: 1rem;
+    resize: none;
+}
+
+.confirmar-edicion textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 3px #4CAF50;
+}
+
+
+
+.confirmar-edicion .boton-guardar-cambios {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirmar-edicion .boton-guardar-cambios:hover {
+    background-color: #1f7522;
+    transform: translateY(-2px);
+}
+
+.confirmar-edicion .boton-cancelar {
+    background-color: #6c757d;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.confirmar-edicion .boton-cancelar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+
+
 
 /*Eliminar comentario*/
 .confirmacion-eliminar {

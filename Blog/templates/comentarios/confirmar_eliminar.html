@@ -13,11 +13,12 @@
     </div>
 
     <div class="botones">
-        <form action="{% url 'comentarios:path_confirmar_eliminar' comentario.pk comentario.articulo.pk %}" method="post">
+        <form action="{% url 'comentarios:path_confirmar_eliminar' comentario.pk comentario.articulo.pk %}?orden={{ orden }}" method="post">
             {% csrf_token %}
+            <input type="hidden" name="orden" value="{{ orden }}">
             <button type="submit" class="btn-danger">Sí, eliminar</button>
         </form>
-        <a href="{% url 'articulos:path_detalle_articulo' comentario.articulo.pk %}" class="btn-secondary">Cancelar</a>
+        <a href="{% url 'articulos:path_detalle_articulo' comentario.articulo.pk %}?orden={{ orden }}" class="btn-secondary">Cancelar</a>
     </div>
 </div>
 
