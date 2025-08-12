@@ -25,6 +25,7 @@
         <div class="area-comentarios">
             <h1 class="comentarios">
                 Comentarios <span class="contador-comentarios">({{ articulo.MisComentarios.count }})</span>
+
             <form action="{% url 'comentarios:path_comentar' articulo.pk %}?orden={{ request.GET.orden }}" method="post"> {%csrf_token%}
             <textarea name="comentario" type="text" cols="60" rows="5" class="comentario-texto" required="true"></textarea>
             <button type="submit">COMENTAR</button>
@@ -39,12 +40,15 @@
 
             <ul class="lista-comentarios">
                 {% for comentario in comentarios %}
+
     
                     <li>
                         <p>{{ comentario.texto }}</p>
                         <small>Por: {{ comentario.usuario }} - {{ comentario.creado|date:"d/m/Y" }}</small>
+
                             <a href="{% url 'comentarios:path_eliminar' comentario.pk %}?orden={{ request.GET.orden }}" class="boton-eliminar">Eliminar</a>
                             <span> <a class ='boton-editar' href="{% url 'comentarios:path_editar' comentario.pk %}?orden={{ request.GET.orden }}">Editar</a></span>
+
                     </li>
                 {% empty %}
                     <li class="no-comentarios">No hay comentarios todavía.</li>

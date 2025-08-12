@@ -10,6 +10,9 @@ from django.contrib.auth.models import User
 from .models import Comentario
 from articulos.models import Articulo
 
+
+###         CREAR UN COMENTARIO         ###
+
 #@login_required
 def Comentar(request, pk):
     articulo = Articulo.objects.get(pk = pk)
@@ -25,6 +28,11 @@ def Comentar(request, pk):
     return HttpResponseRedirect(redirect_url)
 
 
+
+###         ELIMINAR Y CONFIRMAR ELIMINAR           ###
+
+
+#@login_required
 def ConfirmarEliminar(request, pk, articulo_pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')
@@ -41,6 +49,7 @@ def ConfirmarEliminar(request, pk, articulo_pk):
         else:
             return HttpResponseForbidden("No tienes permiso para eliminar este comentario.")
 
+		
 #@login_required
 def Eliminar(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
@@ -56,6 +65,10 @@ def Eliminar(request, pk):
     return render(request, "comentarios/confirmar_eliminar.html", contexto)
 
 
+
+###        EDITAR Y CONFIRMAR EDICIÓN       ###
+
+#@login_required
 def Editar (request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')
@@ -68,6 +81,7 @@ def Editar (request, pk):
     }
     return render(request, 'comentarios/confirmar_edicion.html',contexto)
 
+#@login_required
 def ConfirmarEditar (request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')

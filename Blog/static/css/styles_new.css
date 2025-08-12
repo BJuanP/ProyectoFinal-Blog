@@ -829,6 +829,7 @@ img:hover {
     box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
 }
 
+
 .area-comentarios button {
     background-color: #007bff;
     color: white;
@@ -841,6 +842,7 @@ img:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
 
 .area-comentarios button:hover {
     background-color: #0056b3;
@@ -870,7 +872,6 @@ img:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 
 
 .lista-comentarios {
@@ -1136,6 +1137,7 @@ img:hover {
     background-color: #5a6268;
     transform: translateY(-2px);
 }
+
 
 
 /*Barra de progreso*/

@@ -12,3 +12,4 @@ urlpatterns = [
     path('Editar/<int:pk>/',views.Editar, name='path_editar'),
     path('Confirmar_editar/<int:pk>/',views.ConfirmarEditar, name='path_confirmar_editar'),
 ]
+
