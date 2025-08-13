@@ -10,19 +10,25 @@ from django.contrib.auth.models import User
 from .models import Comentario
 from articulos.models import Articulo
 
+
+###         CREAR UN COMENTARIO         ###
+
 #@login_required
 def Comentar(request, pk):
     articulo = Articulo.objects.get(pk = pk)
     usuario = request.user
     comentario = request.POST.get('comentario', None)
     orden = request.GET.get('orden', '')
-
+    
     Comentario.objects.create(texto = comentario, articulo = articulo, usuario = usuario)
 
     redirect_url = reverse_lazy('articulos:path_detalle_articulo', kwargs={'pk':pk})
     if orden:
         return HttpResponseRedirect(f'{redirect_url}?orden={orden}')
     return HttpResponseRedirect(redirect_url)
+
+
+###         ELIMINAR Y CONFIRMAR ELIMINAR           ###
 
 
 def ConfirmarEliminar(request, pk, articulo_pk):
@@ -52,10 +58,12 @@ def Eliminar(request, pk):
     contexto = {
         'comentario': comentario, 
         'orden': orden
-        }         
+        }
     return render(request, "comentarios/confirmar_eliminar.html", contexto)
 
+###        EDITAR Y CONFIRMAR EDICIÓN       ###
 
+#@login_required
 def Editar (request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')
@@ -68,6 +76,7 @@ def Editar (request, pk):
     }
     return render(request, 'comentarios/confirmar_edicion.html',contexto)
 
+#@login_required
 def ConfirmarEditar (request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')
