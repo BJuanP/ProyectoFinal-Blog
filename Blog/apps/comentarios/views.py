@@ -28,9 +28,17 @@ def Comentar(request, pk):
     return HttpResponseRedirect(redirect_url)
 
 
+<<<<<<< HEAD
 ###         ELIMINAR Y CONFIRMAR ELIMINAR           ###
 
 
+=======
+
+###         ELIMINAR Y CONFIRMAR ELIMINAR           ###
+
+
+#@login_required
+>>>>>>> 584c2698955b2d42985241307c9f5f56030b5796
 def ConfirmarEliminar(request, pk, articulo_pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     orden = request.GET.get('orden', '')
@@ -47,6 +55,7 @@ def ConfirmarEliminar(request, pk, articulo_pk):
         else:
             return HttpResponseForbidden("No tienes permiso para eliminar este comentario.")
 
+		
 #@login_required
 def Eliminar(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
@@ -60,6 +69,8 @@ def Eliminar(request, pk):
         'orden': orden
         }
     return render(request, "comentarios/confirmar_eliminar.html", contexto)
+
+
 
 ###        EDITAR Y CONFIRMAR EDICIÓN       ###
 
