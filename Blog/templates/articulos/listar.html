@@ -1,56 +1,61 @@
 
-
 {% extends 'base.html' %}
-
 
 {% block contenido_cuerpo %}
 
+  <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+    <h1>LISTA DE ARTÍCULOS</h1>
     {% if es_moderador %}
-        <a href="{% url 'articulos:path_crear_articulo' %}">Crear artículo</a>
+      <a href="{% url 'articulos:path_crear_articulo' %}" class="button">Crear artículo</a>
     {% endif %}
+  </header>
 
-    <h1>LISTA DE ARTICULOS</h1>
+  <section class="posts">
+    {% for articulo in articulos %}
+      <article>
+        {% if articulo.imagen %}
+          <div class="image">
+            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}">
+          </div>
+        {% endif %}
 
-    <section class="posts">
+        <h3>{{ articulo.nombre }}</h3>
+        <p>{{ articulo.descripcion|truncatechars:180 }}</p>
 
-        {% for articulo in articulos %}
-            <article>
+        <div class="actions">
+          <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button">Ver más</a>
+          {% if es_moderador %}
+            <a href="{% url 'articulos:path_editar_articulo' articulo.pk %}" class="button is-success">Editar</a>
+            <a href="{% url 'articulos:path_eliminar_articulo' articulo.pk %}" class="button is-danger">Eliminar</a>
+          {% endif %}
+        </div>
+      </article>
+    {% empty %}
+      <p>No hay artículos publicados todavía…</p>
+    {% endfor %}
+  </section>
 
-                {% if articulo.imagen %}
+  {# 🔹 Paginación: fuera del loop #}
+  {% if page_obj.has_other_pages %}
+    <nav class="paginacion">
+      {% if page_obj.has_previous %}
+        <a href="?page=1" class="btn btn-outline">« Primero</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline">‹ Anterior</a>
+      {% endif %}
 
-                    <style>
-						.imagen_producto {
-							width: auto;
-							height: 600px;
-							object-fit: cover;
-							border-radius: 10px;
-						}
-					</style>
+      {% for i in page_obj.paginator.page_range %}
+        {% if i == page_obj.number %}
+          <span class="btn btn-primary btn-sm">{{ i }}</span>
+        {% elif i >= page_obj.number|add:-2 and i <= page_obj.number|add:2 %}
+          <a href="?page={{ i }}" class="btn btn-outline btn-sm">{{ i }}</a>
+        {% endif %}
+      {% endfor %}
 
-                    <div class="image">
-                        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}" class="imagen_producto">
-                    </div>
-
-                {% endif %}
-
-                <h3>{{ articulo.nombre }}</h3>
-                <p>{{ articulo.descripcion }}</p>
-
-                <div class="actions">
-                    <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button"> Ver más </a>
-                    {% if es_moderador %}
-                     <a href="#" class="button" style="background-color: green; ">Editar</a>
-                     <a href="#" class="button" style="background-color: red;">Eliminar</a>
-                    {% endif %}
-                </div>
-            </article>
-
-        {% empty %}
-            <p> No hay artículos publicados todavía...</p>
-        {% endfor %}
-
-    </section>
-
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline">Siguiente ›</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline">Última »</a>
+      {% endif %}
+    </nav>
+  {% endif %}
 
 {% endblock %}
-

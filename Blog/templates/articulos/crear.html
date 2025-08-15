@@ -1,19 +1,25 @@
 
 {% extends 'base.html' %}
 
-
 {% block contenido_cuerpo %}
 
-    <h1>Crear Artículo</h1>
+<div class="crear-articulo-container">
+    <h2>Crear Artículo</h2>
 
-    <div class="actions">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="formulario-articulo">
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">CREAR</button>
-        </form>
-    </div>
+        </div>
+
+        <div class="botones">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <a href="{% url 'articulos:path_listar_articulos' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
 
 {% endblock contenido_cuerpo %}
+
 
 

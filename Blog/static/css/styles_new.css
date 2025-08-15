@@ -999,3 +999,328 @@ body {
   padding: 20px;
   max-width: calc(100% - 220px);
 }
+
+
+
+
+
+
+
+/* utilidades para botones en cards */
+.button.is-success { background:#4caf50; }
+.button.is-success:hover { background:#339337; }
+
+.button.is-danger { background:#dc3545; }
+.button.is-danger:hover { background:#c82333; }
+
+
+
+.button.is-danger { background:#dc3545; }
+.button.is-danger:hover { background:#c82333; }
+
+.button.is-secondary { background:#6c757d; }
+.button.is-secondary:hover { background:#5a6268; }
+
+
+
+
+
+
+
+
+
+
+
+/* --- Estética de formulario de edición --- */
+.confirmar-edicion { max-width: 720px; margin: 2rem auto; padding: 2rem; background:#fff; border-radius: 12px; box-shadow: 0 0 15px rgba(0,0,0,.1); }
+.confirmar-edicion h2 {
+  color:#023047; font-size:1.8rem; margin-bottom:1.5rem;
+  border-bottom:3px solid #4CAF50; padding-bottom:.5rem; text-align:center;
+}
+
+.form-edit .form-grid { display:grid; gap:1rem; }
+.form-edit .field { display:flex; flex-direction:column; gap:.35rem; }
+
+.form-edit label { font-weight:700; color:#023047; }
+
+/* inputs consistentes */
+.form-edit input[type="text"],
+.form-edit input[type="url"],
+.form-edit input[type="email"],
+.form-edit input[type="number"],
+.form-edit input[type="file"],
+.form-edit textarea,
+.form-edit select {
+  width:100%;
+  padding:.75rem 1rem;
+  border:2px solid #e0e0e0;
+  border-radius:8px;
+  font:inherit;
+  background:#fff;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+/* focus verde como en edición/eliminación */
+.form-edit input:focus,
+.form-edit textarea:focus,
+.form-edit select:focus {
+  outline:none;
+  border-color:#4CAF50;
+  box-shadow:0 0 0 3px rgba(76,175,80,.25);
+}
+
+/* textos auxiliares y error */
+.form-edit .help { color:#666; }
+.form-edit .error { color:#dc3545; }
+
+/* botones semánticos (reusa tu esquema) */
+.btn-success{ background:#4CAF50; color:#fff; padding:.8rem 1.5rem; border-radius:6px; border:none; font-weight:600; cursor:pointer; transition:all .3s ease; text-decoration:none; display:inline-block; }
+.btn-success:hover{ background:#339337; transform:translateY(-2px); }
+
+.btn-secondary{ background:#6c757d; color:#fff; padding:.8rem 1.5rem; border-radius:6px; border:none; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; transition:all .3s ease; }
+.btn-secondary:hover{ background:#5a6268; transform:translateY(-2px); }
+
+/* responsivo */
+@media (max-width: 600px){
+  .confirmar-edicion{ padding:1.25rem; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Barra de acciones arriba del detalle */
+.acciones-articulo {
+  display: flex;
+  gap: .75rem;
+  justify-content: flex-end;
+  margin: 0 0 1rem;
+}
+
+/* Botón primario y de peligro con misma estética que .area-comentarios button */
+.btn-primary,
+.btn-danger {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all .3s ease;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+/* Variante danger (Eliminar) */
+.btn-danger {
+  background-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Responsive: que no se amontonen */
+@media (max-width: 600px){
+  .acciones-articulo { justify-content: center; flex-wrap: wrap; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedor para crear/editar artículo */
+.crear-articulo-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.crear-articulo-container h2 {
+    color: #023047;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+.formulario-articulo p {
+    margin-bottom: 1rem;
+}
+
+.crear-articulo-container .botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-success {
+  background:#28a745;
+  color:#fff;
+}
+.btn-success:hover {
+  background:#218838;
+  transform:translateY(-2px);
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+.btn-outline {
+  background:transparent;
+  color:#007bff;
+  border:2px solid #007bff;
+}
+.btn-outline:hover {
+  background:#007bff;
+  color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+
+
+
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.paginacion .btn {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    background: #f0f0f0;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.paginacion .btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.paginacion .btn-primary {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-sm {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+}
+
+
+
+
+
+
+
+.volver-btn {
+    display: inline-block;
+    background-color: #6c757d; /* gris elegante */
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.volver-btn:hover {
+    background-color: #5a6268; /* gris más oscuro al pasar el mouse */
+}

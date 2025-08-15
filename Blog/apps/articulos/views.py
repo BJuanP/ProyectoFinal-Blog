@@ -1,20 +1,12 @@
 
-from django.shortcuts import render
-from django.views.generic.detail import DetailView    #Esto es una vista preparada para mostrar el detalle de un proyecto
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator
+from django.contrib import messages
 
-from .models import Articulo            #Esto es necesario para traer lo que está en la clase Producto
-from .forms import FormularioCrearArticulo
-
-
-
-from django.contrib import messages     #Todo esto es para el boton de editar
-from django.shortcuts import redirect
-from django.urls import reverse
-from django.views.generic import UpdateView
 from .models import Articulo
 from .forms import FormularioCrearArticulo
 
@@ -33,11 +25,21 @@ class soloMod(UserPassesTestMixin):
 
 
 def Listar_Articulos(request):
-    todos = Articulo.objects.all().order_by('-fecha_publicacion')  # ⬅️ Ordena del más nuevo al más viejo
-    es_moderador = request.user.is_authenticated and request.user.groups.filter(name='Moderador').exists()
-    return render(request, 'articulos/listar.html', {
-        'articulos': todos,
-        'es_moderador': es_moderador
+    todos = Articulo.objects.all().order_by('-fecha_publicacion')
+    paginator = Paginator(todos, 4)  # 8 artículos por página
+
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    es_moderador = (
+        request.user.is_authenticated
+        and request.user.groups.filter(name='Moderador').exists()
+    )
+
+    return render(request, "articulos/listar.html", {
+        "articulos": page_obj.object_list,  # artículos de la página actual
+        "page_obj": page_obj,               # info de paginación
+        "es_moderador": es_moderador
     })
 
 

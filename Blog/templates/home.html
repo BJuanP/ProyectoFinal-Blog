@@ -1,82 +1,79 @@
 
+
+
 {% extends 'base.html' %}
 {% load static %}
 
 {% block contenido_cuerpo %}
 
-    <section id="banner">
-    {% if articulo_destacado %}
-        <div class="content">
-        <header>
-            <h1>{{ articulo_destacado.nombre }}</h1>
-            <p>{{ articulo_destacado.descripcion|truncatechars:180 }}</p>
-        </header>
-        <ul class="actions">
-            <li>
-            <a href="{% url 'articulos:path_detalle_articulo' articulo_destacado.pk %}" class="button">
-                Leer ahora
-            </a>
-            </li>
-        </ul>
-        </div>
+<section id="banner">
+  {% if articulo_destacado %}
+    <div class="content">
+      <header>
+        <h1>{{ articulo_destacado.nombre }}</h1>
+        <p>{{ articulo_destacado.descripcion|truncatechars:180 }}</p>
+      </header>
+      <div class="actions">
+        <a href="{% url 'articulos:path_detalle_articulo' articulo_destacado.pk %}" class="btn btn-primary">
+            LEER AHORA
+        </a>
+      </div>
+    </div>
 
-        <span class="image object">
-        {% if articulo_destacado.imagen %}
-            <img src="{{ articulo_destacado.imagen.url }}" alt="{{ articulo_destacado.nombre }}" />
-        {% else %}
-            <img src="{% static 'images/pic10.jpg' %}" alt="" />
-        {% endif %}
-        </span>
-    {% else %}
-        <!-- Fallback si no hay artículos aún -->
-        <div class="content">
-        <header><h1>Sin artículos por ahora</h1></header>
-        <p>Cuando crees el primero aparecerá aquí.</p>
-        </div>
-        <span class="image object">
+    <span class="image object">
+      {% if articulo_destacado.imagen %}
+        <img src="{{ articulo_destacado.imagen.url }}" alt="{{ articulo_destacado.nombre }}" />
+      {% else %}
         <img src="{% static 'images/pic10.jpg' %}" alt="" />
-        </span>
-    {% endif %}
-    </section>
+      {% endif %}
+    </span>
+  {% else %}
+    <!-- Fallback si no hay artículos aún -->
+    <div class="content">
+      <header><h1>Sin artículos por ahora</h1></header>
+      <p>Cuando crees el primero aparecerá aquí.</p>
+    </div>
+    <span class="image object">
+      <img src="{% static 'images/pic10.jpg' %}" alt="" />
+    </span>
+  {% endif %}
+</section>
 
-    <!-- Section -->
-    <section>
-        
-        <header class="major">
-            <h2>Últimos Artículos</h2>
-        </header>
+<!-- Section -->
+<section>
+  <header class="major">
+    <h2>Últimos Artículos</h2>
+  </header>
 
-        <section class="posts">
-            {% for articulo in ultimos_articulos %}
-                <article>
-                    {% if articulo.imagen %}
-                        <div class="image">
-                            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}" class="imagen_producto">
-                        </div>
-                    {% endif %}
+  <section class="posts">
+    {% for articulo in ultimos_articulos %}
+      <article>
+        {% if articulo.imagen %}
+          <div class="image">
+            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}" class="imagen_producto">
+          </div>
+        {% endif %}
 
-                    <h3>{{ articulo.nombre }}</h3>
-                    <p>{{ articulo.descripcion|truncatechars:100 }}</p>
+        <h3>{{ articulo.nombre }}</h3>
+        <p>{{ articulo.descripcion|truncatechars:100 }}</p>
 
-                    <div class="actions">
-                        <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button">Ver más</a>
-                        {% if es_moderador %}
-                         <a href="#" class="button" style="background-color: green; ">Editar</a>
-                         <a href="#" class="button" style="background-color: red;">Eliminar</a>
-                        {% endif %}
-                       
-                    </div>
-                </article>
-            {% endfor %}
-        </section>
+        <div class="actions">
+          <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="btn btn-primary">Ver más</a>
+          {% if es_moderador %}
+            <a href="{% url 'articulos:path_editar_articulo' articulo.pk %}" class="btn btn-success">Editar</a>
+            <a href="{% url 'articulos:path_eliminar_articulo' articulo.pk %}" class="btn btn-danger">Eliminar</a>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
 
-        <ul class="actions">
-            <li><a href="{% url 'articulos:path_listar_articulos' %}" class="button"> VER TODOS LOS ARTICULOS </a></li>
-        </ul>
+  <div class="actions">
+    <a href="{% url 'articulos:path_listar_articulos' %}" class="btn btn-primary">
+        VER TODOS LOS ARTÍCULOS
+    </a>
+  </div>
 
-        
-    </section>
+</section>
 
-    
 {% endblock %}
-
