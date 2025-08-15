@@ -91,6 +91,12 @@ body {
 
 
 
+
+
+
+
+
+
 /* Banner principal */
 #banner {
   display: flex;
@@ -162,6 +168,11 @@ body {
   display: block;
   object-fit: cover;
 }
+
+
+
+
+
 
 
 
@@ -257,48 +268,6 @@ body {
 
 
 
-/* Contenedor de características */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-/* Cada artículo de feature */
-.features article {
-  background-color: #fff;
-  border-radius: 6px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.features article:hover {
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-/* Iconos grandes */
-.features article .icon {
-  font-size: 3rem;
-  color: #007bff;
-  margin-bottom: 1rem;
-}
-
-/* Contenido dentro del artículo */
-.features article .content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.7rem;
-  color: #007bff;
-  font-weight: 700;
-}
-
-.features article .content p {
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.4;
-}
 
 
 
@@ -308,60 +277,6 @@ body {
 
 
 
-
-
-
-
-/* Footer general */
-#footer {
-  background-color: #023047; /* azul igual al header */
-  color: #fff;
-  padding: 2rem 2rem;
-  border-radius: 0 0 5px 5px;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-/* Texto de copyright */
-#footer p {
-  margin: 0;
-}
-
-/* Lista de contacto */
-.contact {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  background-color: #023047;
-}
-
-.contact li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  color: #e0e0e0;
-}
-
-.contact li.icon {
-  font-size: 1.2rem;
-  /* Puedes agregar iconos con FontAwesome o similares */
-}
-
-/* Enlaces en contacto */
-.contact li a {
-  color: #f5f5f5;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact li a:hover {
-  color: #f56a6a;
-}
 
 
 
@@ -467,187 +382,7 @@ body {
 
 
 
-/* Transiciones suaves para todos los botones y enlaces */
-a, button {
-  transition: all 0.3s ease;
-}
 
-/* Cursor pointer para botones y enlaces interactivos */
-a.button, button {
-  cursor: pointer;
-}
-
-/* Efecto sombra suave para links y botones */
-a.button:hover, button:hover {
-  filter: brightness(1.1);
-}
-
-/* Ajustes para listas y textos */
-ul {
-  list-style: none;
-}
-
-p, li {
-  line-height: 1.5;
-}
-
-/* Sombra y borde sutil para sidebar */
-#sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #222;
-    color: white;
-    padding-top: 20px;
-    margin: 0;          /* ⬅ importante */
-    border: none;       /* ⬅ asegura que no tenga borde */
-}
-
-
-/* Links menú lateral */
-#menu ul li a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #007bff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-#menu ul li a:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-/* Submenú */
-#menu ul li ul {
-  padding-left: 1rem;
-  margin-top: 0.5rem;
-}
-
-/* Indicador para "opener" */
-#menu .opener {
-  cursor: pointer;
-  color: #007bff;
-  font-weight: 700;
-}
-
-/* Scrollbar personalizado para sidebar */
-#sidebar::-webkit-scrollbar {
-  width: 8px;
-}
-
-#sidebar::-webkit-scrollbar-thumb {
-  background-color: #007bff;
-  border-radius: 4px;
-}
-
-/* Animación suave para imágenes */
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-img:hover {
-  transform: scale(1.02);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Botón flotante para abrir el sidebar */
-#sidebarToggle {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 1001;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-/* Sidebar lateral oculto por defecto */
-#sidebar {
-  position: fixed;
-  top: 0;
-  left: -250px; /* fuera de la pantalla */
-  width: 250px;
-  height: 100%;
-  background-color: #222;
-  color: white;
-  padding-top: 2rem;
-  transition: left 0.3s ease;
-  z-index: 1000;
-}
-
-#sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#sidebar ul li {
-  padding: 1rem;
-  border-bottom: 1px solid #444;
-}
-
-#sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-}
-
-#sidebar ul li a:hover {
-  background-color: #444;
-}
-
-/* Sidebar visible */
-#sidebar.active {
-  left: 0;
-}
-
-
-
-
-
-
-
-
-.btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
 
 
 
@@ -717,71 +452,105 @@ img:hover {
 
 
 
+
+
+/* Footer personalizado */
 #footer-personalizado {
-    background-color: #022c43;
-    color: #fff;
-    padding: 2rem 1rem;
-    margin-top: 2rem;
-    font-size: 0.95rem;
+  background-color: #022c43;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  font-size: 0.95rem;
 }
 
+/* Contenedor principal del footer */
 .footer-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Columnas */
 .footer-info,
 .footer-contacto,
 .footer-redes {
-    flex: 1 1 300px;
+  flex: 1 1 300px;
 }
 
+/* Títulos */
 .footer-info h3 {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
+/* Lista de contacto */
 .footer-contacto ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 .footer-contacto li {
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
 }
-
 .footer-contacto i {
-    margin-right: 0.6rem;
-    color: #00bcd4;
+  margin-right: 0.6rem;
+  color: #00bcd4;
 }
 
+/* Redes sociales */
 .footer-redes a {
-    margin-right: 0.8rem;
-    font-size: 1.2rem;
-    color: #fff;
-    transition: color 0.3s;
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+  color: #fff;
+  transition: color 0.3s ease;
 }
-
 .footer-redes a:hover {
-    color: #00bcd4;
+  color: #00bcd4;
 }
 
+/* Línea inferior */
 .footer-copy {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.85rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+}
+.footer-copy a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+.footer-copy a:hover {
+  text-decoration: underline;
 }
 
-.footer-copy a {
-    color: #00bcd4;
-    text-decoration: none;
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-contenedor {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-redes a {
+    margin: 0 0.4rem;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Estilos para el área de comentarios */
@@ -1173,44 +942,60 @@ img:hover {
 
 /* Barra lateral fija */
 #sidebar {
-    position: fixed;      /* fija la posición */
-    top: 0;
-    left: 0;
-    width: 220px;         /* ancho de la barra */
-    height: 100%;         /* ocupa toda la altura */
-    background-color: #222;
-    color: white;
-    padding-top: 20px;
-    overflow-y: auto;     /* scroll si el contenido es muy largo */
-    z-index: 1000;        /* encima del contenido */
+  position: fixed;           /* fijo al costado */
+  top: 0;
+  left: 0;
+  width: 220px;               /* ancho fijo */
+  height: 100%;               /* ocupa toda la altura */
+  background-color: #222;
+  color: #fff;
+  padding-top: 20px;
+  overflow-y: auto;           /* scroll si es muy largo */
+  z-index: 1000;              /* sobre el contenido */
 }
 
+/* Scrollbar estilizado */
+#sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/* Lista de menú */
 #sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
 #sidebar ul li {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
-
 #sidebar ul li a,
 #sidebar ul li button {
-    color: white;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: left;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
 #sidebar ul li a:hover,
 #sidebar ul li button:hover {
-    background-color: #444;
+  background-color: #444;
 }
 
+/* Contenido principal adaptado al sidebar */
 #main {
-    margin-left: 130px; /* sigue siendo el ancho del sidebar */
-    padding: 20px;
-    max-width: calc(100% - 220px); /* ocupa todo menos el sidebar */
+  margin-left: 220px;         /* deja espacio exacto al sidebar */
+  padding: 20px;
+  max-width: calc(100% - 220px);
 }
