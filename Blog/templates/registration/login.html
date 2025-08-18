@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Iniciar Sesión{% endblock title %}
+
+{% block contenido_cuerpo %}
+<div class="d-flex justify-content-center align-items-center login-container">
+    <div class="auth-card">
+        <h2>Iniciar Sesión</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <a href="{% url 'apps.usuario:registrar' %}" class="btn btn-outline btn-sm mb-2">Registrate</a>
+            <button type="submit" class="btn btn-success btn-lg px-3 w-100">Iniciar Sesión</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

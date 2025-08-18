@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+<div class='confirmar-edicion'>
+    <h2>Editar comentario de {{ comentario.usuario }} en {{ comentario.articulo }}</h2>
+    
+    <form action="{% url 'apps.comentarios:path_confirmar_editar' comentario.pk %}?orden={{ orden }}" method="post">
+        {% csrf_token %}
+        <textarea class="comentario-texto" name="comentario" rows="5" cols="60" required>{{ comentario.texto }}</textarea>
+        <div class="botones">
+            <button class="boton-guardar-cambios" type="submit">Guardar cambios</button>
+            <a href="{% url 'apps.articulos:path_detalle_articulo' comentario.articulo.pk %}?orden={{ orden }}" class="boton-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

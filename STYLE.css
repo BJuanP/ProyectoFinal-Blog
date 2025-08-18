@@ -1,0 +1,147 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;         /* Elementos apilados (h1 y tabla) */
+    align-items: center;            /* Centra horizontalmente */
+    justify-content: center;        /* Centra verticalmente */
+    min-height: 100vh;              /* Ocupa toda la pantalla */
+    
+    margin: 0;
+
+    background-color: #e0f7fa;
+    background-image: url('Images/Fondo.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    animation: fadeIn 1s ease-in;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.05); /* capa blanca muy suave */
+    z-index: -1;
+}
+
+tbody tr:hover {
+    background-color: rgba(206, 147, 216, 0.2); /* violeta muy suave */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5em;
+    color: #4a148c;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+
+    opacity: 0;
+    animation: aparecer 1s ease-out forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 150px; /* más corto para que sea más sutil */
+    height: 3px;
+    margin: 8px auto 0;
+    background-color: #ce93d8;
+    border-radius: 2px;
+}
+
+.titulo-container {
+    background-color: rgba(255, 255, 255, 0.4); /* un poco más transparente */
+    padding: 8px 25px; /* menos padding, para que no sea tan alto */
+    margin-bottom: 40px; /* más espacio abajo para que no choque con la tabla */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 2px solid rgba(88, 214, 141, 0.6);
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 8px;
+}
+
+th {
+    background-color: rgba(91, 44, 111, 0.85); /* violeta oscuro */
+    color: rgb(240, 243, 244);                 /* texto blanco */
+    font-family: 'Poppins', sans-serif;        /* fuente linda */
+    font-size: 1.3em;                          /* un poquito más grande */
+    letter-spacing: 1px;                       /* separa un poquito las letras */
+    text-transform: uppercase;                 /* todo en mayúsculas, más uniforme */
+    padding: 12px;                             /* un poquito más de espacio interno */
+}
+
+th:hover {
+    background-color: #ab47bc;
+    cursor: default;
+    transition: background-color 0.3s ease;
+}
+
+td {
+    color: rgb(23, 32, 42);
+    font-weight: 550;
+    height: 50px;
+}
+
+td:first-child {
+    background-color: rgba(206, 147, 216, 0.3); /* un violeta suave, para que se diferencie */
+    font-weight: bold;                         /* que se vea más importante */
+    font-size: 1.3em;                           /* apenas más grande que el contenido */
+    font-family: 'Poppins', sans-serif;         /* misma fuente, coherente */
+    text-align: center;                         /* centrado */
+}
+
+td:not(:first-child) {
+    font-family: 'Poppins', sans-serif;         /* misma fuente */
+    font-size: 1em;                             /* tamaño normal */
+    text-align: center;                         /* centrado */
+    vertical-align: middle;                     /* centra también verticalmente */
+    padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    table {
+        width: 95%;
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+

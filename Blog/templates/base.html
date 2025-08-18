@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>TECChaco</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/styles_new.css' %}">
+		<link rel="stylesheet" href="{% static 'css/sidebar-dropdown.css' %}">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+		<!-- Font Awesome descargado localmente -->
+  		<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+
+	</head>
+
+
+
+
+	<body class="is-preload">
+	<div id="myProgressBar" class="myProgressBar"></div>
+
+
+	<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Header -->
+						<header id="header">
+							<div class="logo-container">
+								<img src="{% static 'images/TECChaco (2).png' %}" alt="TECChaco" class="logo-image">
+							</div>
+							<div class="brand">
+								<p class="brand-tag">Informatorio 2025</p>
+								<a href="{% url 'path_home' %}" class="logo">
+									TECChaco
+								</a>
+							</div>
+
+							<ul class="icons">
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fab fa-snapchat-ghost"></i></a></li>
+								<li><a href="#"><i class="fab fa-medium-m"></i></a></li>
+							</ul>
+						</header>
+
+						
+						{% block contenido_cuerpo %}
+
+							
+						{% endblock %}
+
+						
+						<!-- Footer personalizado -->
+						<footer id="footer-personalizado">
+							<div class="footer-contenedor">
+								<div class="footer-info">
+									<h3>Equipo del Proyecto</h3>
+									<p> • Bravo Juan Pablo</p>
+									<p> • Obregón César Lautaro</p>
+									<p> • Massad Lucas Yael</p>
+									<p> • Lazarczuk Carlos Agustin</p>
+								</div>
+
+							</div>
+							
+							<div class="footer-copy">
+								<p>&copy; 2025 Informatorio</a>.</p>
+							</div>
+						</footer>
+						
+					</div>
+				</div>
+
+
+
+				<!-- Sidebar -->
+				<nav id="sidebar">
+					<div class="sidebar-brand">TECChaco</div>
+
+					<div class="nav-section">Navegación</div>
+					<ul>
+						<li>
+							<a href="{% url 'path_home' %}" 
+							class="{% if request.resolver_match.url_name == 'path_home' %}active{% endif %}">
+							<span class="nav-icon">🏠</span> Inicio
+							</a>
+						</li>
+
+						<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle">
+						<span class="nav-icon">🗂️</span> Categorías
+						</a>
+							<ul class="dropdown-menu">
+								{% for categoria in categorias %}
+									<li><a class="dropdown-item" href="{% url 'categorias:listar_articulos_por_categoria' categoria.slug %}">{{ categoria.nombre }}</a></li>
+								{% endfor %}
+							</ul>
+						</li>
+						<li>
+							<a href="{% url 'acerca' %}" class="{% if request.resolver_match.url_name == 'acerca' %}active{% endif %}">
+								<span class="nav-icon">ℹ️</span> Acerca de
+							</a>
+						</li>
+						
+						<li>
+							<a href="{% url 'contacto' %}" class="{% if request.resolver_match.url_name == 'contacto' %}active{% endif %}">
+								<span class="nav-icon">✉️</span> Contacto
+							</a>
+						</li>
+
+
+
+						{% if user.is_authenticated %}
+						<div class="nav-section">Cuenta</div>
+						<li><a href="{% url 'usuario:perfil' %}"><span class="nav-icon">👤</span> Mi perfil</a></li>
+						<li>
+							<form action="{% url 'apps.usuario:logout' %}" method="post">
+							{% csrf_token %}
+							<button type="submit"><span class="nav-icon">🚪</span> Cerrar sesión</button>
+							</form>
+						</li>
+						{% else %}
+						<li><a href="{% url 'apps.usuario:login' %}"><span class="nav-icon">🔐</span> Iniciar Sesión</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+
+
+		</div>
+
+		
+		<script src="{% static 'js/scroll-handler.js' %}"></script>	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{% static 'js/sidebar-dropdown.js' %}"></script>
+	</body>
+</html>

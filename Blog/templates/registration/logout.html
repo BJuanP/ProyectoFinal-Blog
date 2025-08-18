@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Cerrar Sesión{% endblock title %}
+{% block contenido_cuerpo %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="auth-card text-center">
+        <h2>Sesión cerrada</h2>
+        
+        <a href="{% url 'apps.usuario:login' %}" class="btn btn-success mt-2">Volver a iniciar sesión</a>
+    </div>
+</div>
+{% endblock %}

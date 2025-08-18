@@ -1,0 +1,26 @@
+
+
+{% extends "base.html" %}
+
+{% block contenido_cuerpo %}
+<div class="confirmacion-eliminar">
+    <h2>Eliminar artículo</h2>
+    <p>
+        ¿Estás seguro que deseas eliminar el artículo 
+        <strong>{{ object.nombre }}</strong>?
+    </p>
+
+    <div class="comentario-info">
+        <p><strong>Título:</strong> {{ object.nombre }}</p>
+        <p><strong>Descripción:</strong> {{ object.descripcion|truncatewords:25 }}</p>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="botones">
+            <button type="submit" class="btn-danger">Sí, eliminar</button>
+            <a href="{% url 'articulos:path_detalle_articulo' object.pk %}" class="btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

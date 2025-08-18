@@ -1,0 +1,75 @@
+
+
+
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+
+  {# Barra de acciones del artículo #}
+  {% if user.is_authenticated %}
+  <div class="acciones-articulo">
+    <a class="btn-primary" href="{% url 'articulos:path_editar_articulo' articulo.pk %}">Editar</a>
+    <a class="btn-danger"  href="{% url 'articulos:path_eliminar_articulo' articulo.pk %}">Eliminar</a>
+  </div>
+  {% endif %}
+
+  <section class="detalle-articulo-container">
+    <a href="{% url 'articulos:path_listar_articulos' %}" class="button volver-btn">Volver</a>
+
+    <h1 class="titulo-articulo">{{ articulo.nombre }}</h1>
+
+    <div class="contenido-articulo">
+      {% if articulo.imagen %}
+        <img src="{{ articulo.imagen.url }}" class="imagen-articulo" alt="{{ articulo.nombre }}">
+      {% endif %}
+
+      <div class="resumen-container">
+        <p class="articulo-resumen">
+          {{ articulo.resumen }}
+        </p>
+      </div>
+
+       <p class="cuerpo-articulo">
+      <br>
+        {{ articulo.cuerpo }}
+      </p>
+    </div>
+
+    <div class="area-comentarios">
+      <h1 class="comentarios">
+        Comentarios <span class="contador-comentarios">({{ comentarios.count }})</span>
+      </h1>
+
+      <form action="{% url 'apps.comentarios:path_comentar' articulo.pk %}?orden={{ request.GET.orden }}" method="post">
+        {% csrf_token %}
+        <textarea name="comentario" cols="60" rows="5" class="comentario-texto" required></textarea>
+        <button type="submit">COMENTAR</button>
+      </form>
+
+      <h3>Ordenar:</h3>
+      <a class="boton-ordenar" href="{% url 'articulos:path_detalle_articulo' articulo.pk %}?orden=reciente">Más reciente</a>
+      <a class="boton-ordenar" href="{% url 'articulos:path_detalle_articulo' articulo.pk %}?orden=antiguo">Más antiguo</a>
+
+      <ul class="lista-comentarios">
+        {% for comentario in comentarios %}
+          <li>
+            <p>{{ comentario.texto }}</p>
+            <small>Por: {{ comentario.usuario }} - {{ comentario.creado|date:"d/m/Y" }}</small>
+
+            {% if request.user == comentario.usuario or es_moderador %}
+              <a href="{% url 'apps.comentarios:path_eliminar' comentario.pk %}?orden={{ request.GET.orden }}" class="boton-eliminar">Eliminar</a>
+              <a href="{% url 'apps.comentarios:path_editar' comentario.pk %}?orden={{ request.GET.orden }}" class="boton-editar">Editar</a>
+            {% endif %}
+          </li>
+        {% empty %}
+          <li class="no-comentarios">No hay comentarios todavía.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+{% endblock contenido_cuerpo %}
+
+
+
+
