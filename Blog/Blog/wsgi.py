@@ -1,16 +1,19 @@
-import os
-import sys
+# /var/www/.../mysite_wsgi.py   (o el WSGI file que te muestra PythonAnywhere)
+import os, sys
 
-path = '/home/carrito/carrito' #Donde esta el manage.py
-if path not in sys.path:
-    sys.path.insert(0, path)
+# 1) Ruta al directorio raíz del proyecto (donde está manage.py)
+project_root = '/home/BJuanP/ProyectoFinal-Blog/Blog'      # <-- CAMBIÁ esto si tu carpeta difiere
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-#Configuracion de modulo settings
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce.settings.production')
+# 2) (Opcional) Agregar también el parent si hace falta
+parent = '/home/BJuanP/ProyectoFinal-Blog'                 # <-- CAMBIÁ si difiere
+if parent not in sys.path:
+    sys.path.insert(0, parent)
 
-#Cargamos la app WSGI
+# 3) Módulo de settings correcto para producción
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Blog.settings.production')
 
+# 4) Crear la aplicación WSGI
 from django.core.wsgi import get_wsgi_application
-from django.contrib.staticfiles.handlers import StaticFilesHandler
-
-application = StaticFilesHandler(get_wsgi_application())
+application = get_wsgi_application()
