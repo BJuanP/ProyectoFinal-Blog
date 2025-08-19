@@ -3,9 +3,12 @@
 import os
 import sys
 
+<<<<<<< HEAD
 #administrador
 #blog123
 
+=======
+>>>>>>> db86a01 (Finalizado)
 
 def main():
     """Run administrative tasks."""

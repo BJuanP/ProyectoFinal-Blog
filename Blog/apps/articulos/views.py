@@ -50,14 +50,20 @@ def Listar_Articulos(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
+<<<<<<< HEAD
     es_moderador = request.user.is_authenticated and request.user.groups.filter(name='Moderador').exists()
 
+=======
+>>>>>>> db86a01 (Finalizado)
     return render(request, 'articulos/listar.html', {
         'articulos': page_obj.object_list,
         'page_obj': page_obj,
         'categorias': categorias,
         'categoria_seleccionada': categoria_seleccionada,
+<<<<<<< HEAD
         'es_moderador': es_moderador,
+=======
+>>>>>>> db86a01 (Finalizado)
         'orden': orden,
     })
 

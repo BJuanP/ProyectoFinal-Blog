@@ -159,9 +159,15 @@
   display: block;
   text-align: center;
   margin-bottom: 1rem;
+<<<<<<< HEAD
   color: var(--c-secondary);
   border: 1px solid var(--c-secondary);
   background: var(--c-light);
+=======
+  color: var(--c-secondary) !important;
+  border: 1px solid var(--c-secondary)!important;
+  background: var(--c-light)!important;
+>>>>>>> db86a01 (Finalizado)
   transition: background 0.2s, color 0.2s;
   font-family: 'Inter', system-ui, sans-serif;
 }
@@ -235,6 +241,7 @@
   display: block;
   text-align: center;
   margin-bottom: 1rem;
+<<<<<<< HEAD
   color: #007bff;
   border: 1px solid #007bff;
   background: #f8f9fa;
@@ -242,6 +249,15 @@
 }
 .auth-card a.btn-outline:hover {
   background: #007bff;
+=======
+  color: var(--c-light);
+  border: 1px solid var(--c-secondary);
+  background: var(--c-secondary);
+  transition: background 0.2s, color 0.2s;
+}
+.auth-card a.btn-outline:hover {
+  background: var(--c-secondary);
+>>>>>>> db86a01 (Finalizado)
   color: #fff;
 }
 /* === Estilos personalizados para el formulario de crear artículo === */
@@ -2926,4 +2942,32 @@ a:hover{ color: var(--c-accent) !important; text-decoration:none; }
 }
 
 
+<<<<<<< HEAD
+=======
+/* Article Metadata Styles */
+.article-metadata {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-metadata .author {
+  font-weight: 500;
+  color: var(--c-secondary);
+}
+
+.article-metadata .date,
+.article-metadata .category {
+  color: #777;
+}
+
+.detail-metadata {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+>>>>>>> db86a01 (Finalizado)
 

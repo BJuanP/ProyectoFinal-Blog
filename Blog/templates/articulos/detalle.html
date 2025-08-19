@@ -6,7 +6,11 @@
 {% block contenido_cuerpo %}
 
   {# Barra de acciones del artículo #}
+<<<<<<< HEAD
   {% if user.is_authenticated %}
+=======
+  {% if user.es_moderador %}
+>>>>>>> db86a01 (Finalizado)
   <div class="acciones-articulo">
     <a class="btn-primary" href="{% url 'articulos:path_editar_articulo' articulo.pk %}">Editar</a>
     <a class="btn-danger"  href="{% url 'articulos:path_eliminar_articulo' articulo.pk %}">Eliminar</a>
@@ -18,6 +22,15 @@
 
     <h1 class="titulo-articulo">{{ articulo.nombre }}</h1>
 
+<<<<<<< HEAD
+=======
+    <div class="article-metadata detail-metadata">
+      <span class="author">Por: {{ articulo.autor.username }}</span> | 
+      <span class="date">Publicado el: {{ articulo.fecha_publicacion|date:"d/m/Y" }}</span> | 
+      <span class="category">Categoría: {{ articulo.categoria.nombre }}</span>
+    </div>
+
+>>>>>>> db86a01 (Finalizado)
     <div class="contenido-articulo">
       {% if articulo.imagen %}
         <img src="{{ articulo.imagen.url }}" class="imagen-articulo" alt="{{ articulo.nombre }}">

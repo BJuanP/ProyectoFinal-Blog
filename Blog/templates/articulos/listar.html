@@ -28,6 +28,14 @@
 
         <h3>{{ articulo.nombre }}</h3>
         <p>{{ articulo.resumen|truncatechars:180 }}</p>
+<<<<<<< HEAD
+=======
+        <div class="article-metadata">
+          <span class="author">Por: {{ articulo.autor.username }}</span> | 
+          <span class="date">{{ articulo.fecha_publicacion|date:"d/m/Y" }}</span> | 
+          <span class="category">{{ articulo.categoria.nombre }}</span>
+        </div>
+>>>>>>> db86a01 (Finalizado)
 
         <div class="actions">
           <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button">Ver más</a>
@@ -46,21 +54,35 @@
   {% if page_obj.has_other_pages %}
     <nav class="paginacion">
       {% if page_obj.has_previous %}
+<<<<<<< HEAD
         <a href="?page=1" class="btn btn-outline">« Primero</a>
         <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline">‹ Anterior</a>
+=======
+        <a href="?page=1{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">« Primero</a>
+        <a href="?page={{ page_obj.previous_page_number }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">‹ Anterior</a>
+>>>>>>> db86a01 (Finalizado)
       {% endif %}
 
       {% for i in page_obj.paginator.page_range %}
         {% if i == page_obj.number %}
           <span class="btn btn-primary btn-sm">{{ i }}</span>
         {% elif i >= page_obj.number|add:-2 and i <= page_obj.number|add:2 %}
+<<<<<<< HEAD
           <a href="?page={{ i }}" class="btn btn-outline btn-sm">{{ i }}</a>
+=======
+          <a href="?page={{ i }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline btn-sm">{{ i }}</a>
+>>>>>>> db86a01 (Finalizado)
         {% endif %}
       {% endfor %}
 
       {% if page_obj.has_next %}
+<<<<<<< HEAD
         <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline">Siguiente ›</a>
         <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline">Última »</a>
+=======
+        <a href="?page={{ page_obj.next_page_number }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">Siguiente ›</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">Última »</a>
+>>>>>>> db86a01 (Finalizado)
       {% endif %}
     </nav>
   {% endif %}

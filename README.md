@@ -190,6 +190,10 @@ python manage.py shell
 
 Si tienes preguntas o sugerencias, no dudes en contactar a través de:
 - GitHub: [Lussad](https://github.com/Lussad)
+<<<<<<< HEAD
+=======
+- GitHub: [BJuanP](https://github.com/BJuanP)
+>>>>>>> db86a01 (Finalizado)
 
 ---
 

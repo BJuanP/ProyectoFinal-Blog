@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # /var/www/.../mysite_wsgi.py   (o el WSGI file que te muestra PythonAnywhere)
 import os, sys
 
@@ -17,3 +18,20 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Blog.settings.production')
 # 4) Crear la aplicación WSGI
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
+=======
+import sys
+import os
+
+path = '/home/inforgrupo4/ProyectoFinal-Blog-main/Blog'
+if path not in sys.path:
+    sys.path.insert(0, path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'Blog.settings.production'
+
+
+from django.core.wsgi import get_wsgi_application
+from django.contrib.staticfiles.handlers import StaticFilesHandler
+
+
+application = StaticFilesHandler(get_wsgi_application())
+>>>>>>> db86a01 (Finalizado)
