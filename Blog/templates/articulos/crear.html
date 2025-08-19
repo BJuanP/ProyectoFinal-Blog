@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+
+<div class="crear-articulo-container">
+    <h2>Crear Artículo</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="formulario-articulo">
+            <div class="form-group">
+                {{ form.nombre.label_tag }}
+                {{ form.nombre }}
+            </div>
+            <div class="form-group">
+                {{ form.categoria.label_tag }}
+                {{ form.categoria }}
+            </div>
+            <div class="form-group">
+                {{ form.resumen.label_tag }}
+                {{ form.resumen }}
+            </div>
+            <div class="form-group">
+                {{ form.cuerpo.label_tag }}
+                {{ form.cuerpo }}
+            </div>
+            <div class="form-group">
+                {{ form.imagen.label_tag }}
+                {{ form.imagen }}
+            </div>
+        </div>
+
+        <div class="botones">
+            <button type="submit" class="btn btn-primary">Crear</button>
+            <a href="{% url 'articulos:path_listar_articulos' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock contenido_cuerpo %}
+
+
+

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Registro de Usuarios{% endblock title %}
+
+{% block contenido_cuerpo %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="register-card">
+        <h2>Registro de Usuario</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <ul class="form-list">
+                {% for field in form %}
+                    <li class="form-list-item">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <div class="form-text">{{ field.help_text }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg px-3 w-100">Registrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

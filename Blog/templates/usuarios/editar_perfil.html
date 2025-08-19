@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+<section class="perfil-edit">
+  <h1 class="perfil-edit-title">Editar perfil</h1>
+
+  <form method="post" class="perfil-form" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="perfil-form-actions">
+      <a href="{% url 'usuario:perfil' %}" class="btn-primary">Cancelar</a>
+      <button type="submit" class="btn-primary">Guardar cambios</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

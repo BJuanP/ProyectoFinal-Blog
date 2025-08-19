@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+
+<div class="confirmacion-eliminar">
+    <h2>Confirmar eliminación</h2>
+
+    <p>¿Estás seguro que deseas eliminar este comentario?</p>
+
+    <div class="comentario-info">
+        <p>{{ comentario.texto }}</p>
+        <small>Por <strong>{{ comentario.usuario }}</strong> — Creado el {{ comentario.creado|date:"d/m/Y" }}</small>
+    </div>
+
+    <div class="botones">
+        <form action="{% url 'apps.comentarios:path_confirmar_eliminar' comentario.pk comentario.articulo.pk %}?orden={{ orden }}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="orden" value="{{ orden }}">
+            <button type="submit" class="btn-danger">Sí, eliminar</button>
+        </form>
+        <a href="{% url 'apps.articulos:path_detalle_articulo' comentario.articulo.pk %}?orden={{ orden }}" class="btn-secondary">Cancelar</a>
+    </div>
+</div>
+
+
+{% endblock contenido_cuerpo %}

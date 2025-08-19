@@ -1,0 +1,49 @@
+
+
+{% extends "base.html" %}
+{% block contenido_cuerpo %}
+
+<section class="contact-hero">
+  <h1>Contacto</h1>
+  <p>¿Tenés una consulta, sugerencia o querés colaborar? Escribinos por el formulario.</p>
+</section>
+
+
+<section class="contact-grid">
+  <!-- 🟩 Equipo responsable (izquierda) -->
+  <div class="contact-card">
+    <h3>Equipo responsable</h3>
+    <div class="team-grid">
+      {% for p in team %}
+        <div class="team-card">
+          <div class="avatar" aria-hidden="true">👤</div>
+          <div>
+            <h4>{{ p.nombre }}</h4>
+            <p>{{ p.rol }}</p>
+            <p>{{ p.email }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p>Aún no hay integrantes cargados.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- ✉️ Formulario (derecha) -->
+  <div class="contact-card">
+    <h3>Escribinos</h3>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="contact-fields">
+        {{ form.nombre }}
+        {{ form.email }}
+        {{ form.asunto }}
+        {{ form.mensaje }}
+      </div>
+      <button type="submit" class="button contact-submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}
+

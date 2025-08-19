@@ -1,0 +1,28 @@
+
+
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+<section class="perfil">
+  <div class="perfil-card">
+    <div class="perfil-header">
+      <div class="perfil-avatar" aria-hidden="true">👤</div>
+      <div>
+        <h1 class="perfil-title">Perfil de {{ usuario.username }}</h1>
+        <p class="perfil-sub">@{{ usuario.username }}</p>
+      </div>
+    </div>
+
+    <dl class="perfil-data">
+      <div><dt>Nombre</dt><dd>{{ usuario.first_name|default:"—" }}</dd></div>
+      <div><dt>Apellido</dt><dd>{{ usuario.last_name|default:"—" }}</dd></div>
+      <div class="full"><dt>Email</dt><dd>{{ usuario.email }}</dd></div>
+    </dl>
+
+    <div class="perfil-actions">
+      <a href="{% url 'usuario:editar_perfil' %}" class="btn-outline">Editar perfil</a>
+      <a href="{% url 'usuario:cambiar_password' %}" class="btn-primary">Cambiar contraseña</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

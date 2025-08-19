@@ -1,0 +1,55 @@
+
+
+{% extends "base.html" %}
+
+{% block contenido_cuerpo %}
+
+    <section class="acerca-hero">
+    <p class="acerca-eyebrow">Acerca de</p>
+    <h1 class="acerca-title">TECChaco</h1>
+    <p class="acerca-sub">
+        Blog de noticias tecnológicas creado en el marco de <strong>Informatorio 2025</strong>.
+        Nuestro objetivo es acercar tendencias y análisis claros sobre innovación, IA,
+        software y el impacto de la tecnología en la vida cotidiana de los chaqueños.
+    </p>
+    </section>
+
+    <section class="acerca-grid">
+    <article class="acerca-card">
+        <h3>Propósito</h3>
+        <p>
+        Publicar contenidos breves y confiables que ayuden a entender qué está pasando
+        en el mundo tech. Valoramos la claridad, las fuentes y la actualización constante.
+        </p>
+    </article>
+
+    <article class="acerca-card">
+        <h3>Cómo funciona</h3>
+        <ul>
+        <li>Artículos con imágenes y resumen.</li>
+        <li>Comentarios moderados para mantener una conversación sana.</li>
+        <li>Filtros por categoría y fecha para encontrar rápido lo que buscás.</li>
+        </ul>
+    </article>
+
+    <article class="acerca-card">
+        <h3>Roles del sitio</h3>
+        <ul>
+        <li><strong>Visitante:</strong> navega, filtra y lee.</li>
+        <li><strong>Miembro:</strong> comenta, edita y elimina sus comentarios.</li>
+        <li><strong>Moderador:</strong> gestiona artículos e interviene en comentarios.</li>
+        </ul>
+    </article>
+    </section>
+
+
+    <section class="acerca-meta">
+    <h3>Créditos y stack</h3>
+    <p>Desarrollado con Python(<strong>Django</strong>), HTML , CSS y JavaScript. Imágenes: Unsplash.</p>
+    <a href="{% url 'contacto' %}" class="button volver-btn">Ver equipo responsable</a>
+    </section>
+
+
+{% endblock %}
+
+

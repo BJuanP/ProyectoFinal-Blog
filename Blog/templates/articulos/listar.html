@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+
+{% block contenido_cuerpo %}
+
+
+  <header style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;margin-top:1rem;">
+    <h1>LISTA DE ARTÍCULOS</h1>
+    {% if es_moderador %}
+      <a href="{% url 'articulos:path_crear_articulo' %}" class="boton-crear-articulo-list">Crear artículo</a>
+    {% endif %}
+  </header>
+
+  <div style="margin-bottom: 1rem;">
+    <span>Ordenar por: </span>
+    <a href="?orden=reciente{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline {% if orden == 'reciente' %}active{% endif %}">Más recientes</a>
+    <a href="?orden=antiguo{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline {% if orden == 'antiguo' %}active{% endif %}">Más antiguos</a>
+  </div>
+
+  <section class="posts">
+    {% for articulo in articulos %}
+      <article>
+        {% if articulo.imagen %}
+          <div class="image">
+            <img src="{{ articulo.imagen.url }}" alt="{{ articulo.nombre }}">
+          </div>
+        {% endif %}
+
+        <h3>{{ articulo.nombre }}</h3>
+        <p>{{ articulo.resumen|truncatechars:180 }}</p>
+        <div class="article-metadata">
+          <span class="author">Por: {{ articulo.autor.username }}</span> | 
+          <span class="date">{{ articulo.fecha_publicacion|date:"d/m/Y" }}</span> | 
+          <span class="category">{{ articulo.categoria.nombre }}</span>
+        </div>
+
+        <div class="actions">
+          <a href="{% url 'articulos:path_detalle_articulo' articulo.pk %}" class="button">Ver más</a>
+          {% if es_moderador %}
+            <a href="{% url 'articulos:path_editar_articulo' articulo.pk %}" class="button is-success">Editar</a>
+            <a href="{% url 'articulos:path_eliminar_articulo' articulo.pk %}" class="button is-danger">Eliminar</a>
+          {% endif %}
+        </div>
+      </article>
+    {% empty %}
+      <p>No hay artículos publicados todavía…</p>
+    {% endfor %}
+  </section>
+
+  {# 🔹 Paginación: fuera del loop #}
+  {% if page_obj.has_other_pages %}
+    <nav class="paginacion">
+      {% if page_obj.has_previous %}
+        <a href="?page=1{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">« Primero</a>
+        <a href="?page={{ page_obj.previous_page_number }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">‹ Anterior</a>
+      {% endif %}
+
+      {% for i in page_obj.paginator.page_range %}
+        {% if i == page_obj.number %}
+          <span class="btn btn-primary btn-sm">{{ i }}</span>
+        {% elif i >= page_obj.number|add:-2 and i <= page_obj.number|add:2 %}
+          <a href="?page={{ i }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline btn-sm">{{ i }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">Siguiente ›</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}{% if orden %}&orden={{ orden }}{% endif %}{% if categoria_seleccionada %}&categoria={{ categoria_seleccionada.id }}{% endif %}" class="btn btn-outline">Última »</a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+{% endblock %}
